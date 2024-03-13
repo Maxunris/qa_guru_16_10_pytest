@@ -20,7 +20,7 @@ def test_desktop(browser_size):
 
         browser.element('.HeaderMenu-link--sign-in').click()
     else:
-        pytest.skip("Пропускаем десктоп")
+        pytest.skip("Пропускаем мобильные")
 
 
 def test_mobile(browser_size):
@@ -33,4 +33,4 @@ def test_mobile(browser_size):
         browser.element('.Button--link .Button-content').click()
         browser.element('.HeaderMenu-link--sign-in').click()
     else:
-        pytest.skip("Пропускаем мобильные.")
+        pytest.skip("Пропускаем десктоп.")
