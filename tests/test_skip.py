@@ -12,7 +12,7 @@ def browser_size(request):
 
 def test_desktop(browser_size):
     width, height = browser_size
-    if width >= 1024:
+    if width >= 1600:
         driver_options = webdriver.ChromeOptions()
         driver_options.page_load_strategy = 'eager'
         browser.config.base_url = 'https://github.com/'
@@ -20,12 +20,12 @@ def test_desktop(browser_size):
 
         browser.element('.HeaderMenu-link--sign-in').click()
     else:
-        pytest.skip("Skipping desktop test for mobile screen size.")
+        pytest.skip("Пропускаем десктоп")
 
 
 def test_mobile(browser_size):
     width, height = browser_size
-    if width < 1024:
+    if width < 1600:
         driver_options = webdriver.ChromeOptions()
         driver_options.page_load_strategy = 'eager'
         browser.config.base_url = 'https://github.com/'
@@ -33,4 +33,4 @@ def test_mobile(browser_size):
         browser.element('.Button--link .Button-content').click()
         browser.element('.HeaderMenu-link--sign-in').click()
     else:
-        pytest.skip("Skipping mobile test for desktop screen size.")
+        pytest.skip("Пропускаем мобильные.")
